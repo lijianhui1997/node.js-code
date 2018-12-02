@@ -1,2 +1,2 @@
-var test1=require('./test/test1.js');
-
+console.log(__filename);
+console.log(__dirname);

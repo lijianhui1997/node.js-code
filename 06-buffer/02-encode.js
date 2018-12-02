@@ -1,7 +1,12 @@
-//从命令行参数获取登录网站的用户名和密码信息
-const user_name=process.argv[2];
-const password=process.argv[3];
-console.log(user_name,password)
-var str=user_name+':'+password;
-var buf=new Buffer(str,'Base64');
-console.log(buf);
+var user_name=process.argv[2];
+var password=process.argv[3];
+
+if(process.argv.length!==4){
+	console.error('you should write as this:cmd uername password');
+	process.exit(1);
+}
+
+console.log('user name:%s\npassword:%s',user_name,password);
+
+const buf=Buffer.from(user_name+':'+password);
+console.log('Base64:',buf.toString('Base64'));
